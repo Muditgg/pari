@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>I'm Sorry Pari ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    /* MULTICOLOUR BACKGROUND */
+    background:
+    radial-gradient(circle at 10% 20%, #ff4ecd 0%, transparent 25%),
+    radial-gradient(circle at 90% 20%, #6c63ff 0%, transparent 30%),
+    radial-gradient(circle at 20% 90%, #00c6ff 0%, transparent 30%),
+    radial-gradient(circle at 90% 90%, #ff9a44 0%, transparent 30%),
+    linear-gradient(135deg,#ff1493,#7b2cff,#2196f3);
+
+    background-size:200% 200%;
+    animation:backgroundMove 12s ease infinite;
+
+    color:white;
+    overflow-x:hidden;
+}
+
+@keyframes backgroundMove{
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+
+/* FLOATING HEARTS */
+
+.heart{
+    position:fixed;
+    bottom:-50px;
+    font-size:28px;
+    animation:floatUp 9s linear infinite;
+    opacity:.7;
+    pointer-events:none;
+}
+
+.heart:nth-child(1){
+    left:10%;
+    animation-delay:0s;
+}
+
+.heart:nth-child(2){
+    left:25%;
+    animation-delay:2s;
+}
+
+.heart:nth-child(3){
+    left:45%;
+    animation-delay:4s;
+}
+
+.heart:nth-child(4){
+    left:65%;
+    animation-delay:1s;
+}
+
+.heart:nth-child(5){
+    left:85%;
+    animation-delay:3s;
+}
+
+@keyframes floatUp{
+
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+
+/* PAGE */
+
+.page{
+    min-height:100vh;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px 20px;
+}
+
+.page.active{
+    display:flex;
+}
+
+
+/* GLASS CARD */
+
+.card{
+
+    width:min(1000px,95%);
+
+    padding:55px 45px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.16);
+
+    backdrop-filter:blur(18px);
+
+    border:2px solid rgba(255,255,255,.35);
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,.35);
+
+}
+
+
+/* HEADINGS */
+
+h1{
+
+    font-size:clamp(55px,9vw,105px);
+
+    font-weight:900;
+
+    color:#fff;
+
+    text-shadow:
+    0 5px 20px rgba(0,0,0,.35);
+
+    margin-bottom:25px;
+
+}
+
+.subtitle{
+
+    font-size:24px;
+
+    margin-bottom:40px;
+
+}
+
+
+/* BUTTON */
+
+button{
+
+    border:none;
+
+    padding:18px 48px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #ffffff,
+        #ffe4f5
+    );
+
+    color:#7b2cff;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+}
+
+
+/* APOLOGY LETTER */
+
+.message{
+
+    text-align:left;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.96),
+        rgba(255,238,248,.96)
+    );
+
+    padding:45px;
+
+    border-radius:25px;
+
+    line-height:1.9;
+
+    font-size:22px;
+
+    color:#54205f;
+
+    max-height:70vh;
+
+    overflow-y:auto;
+
+    box-shadow:
+    inset 0 0 30px rgba(255,105,180,.15),
+    0 10px 35px rgba(0,0,0,.2);
+
+}
+
+
+/* LETTER PARAGRAPHS */
+
+.message p{
+
+    margin-bottom:28px;
+
+}
+
+
+/* FIRST WORD */
+
+.message p:first-child{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    color:#ff1493;
+
+}
+
+
+/* IMPORTANT TEXT */
+
+.highlight{
+
+    font-weight:900;
+
+    font-size:30px;
+
+    text-align:center;
+
+    color:#e60073;
+
+    line-height:1.5;
+
+}
+
+
+/* FINAL PAGE */
+
+.final{
+
+    font-size:clamp(45px,7vw,80px);
+
+    font-weight:900;
+
+    margin-bottom:25px;
+
+    color:white;
+
+    text-shadow:
+    0 5px 20px rgba(0,0,0,.35);
+
+}
+
+.signature{
+
+    font-size:30px;
+
+    margin-top:30px;
+
+    font-style:italic;
+
+    color:#fff;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .card{
+        padding:35px 20px;
+    }
+
+    .message{
+
+        padding:25px;
+
+        font-size:18px;
+
+        line-height:1.8;
+
+    }
+
+    .highlight{
+        font-size:23px;
+    }
+
+    button{
+        font-size:17px;
+        padding:15px 35px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- FLOATING HEARTS -->
+
+<div class="heart">💗</div>
+<div class="heart">💙</div>
+<div class="heart">💜</div>
+<div class="heart">💛</div>
+<div class="heart">🩷</div>
+
+
+<!-- PAGE 1 -->
+
+<section class="page active" id="page1">
+
+    <div class="card">
+
+        <h1>Hey Pari 💗</h1>
+
+        <p class="subtitle">
+            There is something I really want to tell you
+        </p>
+
+        <button onclick="showPage('page2')">
+            Click Here 💗
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section class="page" id="page2">
+
+    <div class="card">
+
+        <h1>I AM SORRY</h1>
+
+        <p class="subtitle">
+            I genuinely mean it
+        </p>
+
+        <button onclick="showPage('page3')">
+            Click Here 💕
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section class="page" id="page3">
+
+    <div class="card">
+
+        <div class="message">
+
+            <p>heyyy</p>
+
+            <p>
+            pari i know tum merese bohot gussa ho itna ki tum mera toh ayushman ka bhi baat nahi sunna chahti and i respect that because maine fuck up kiya hai aur bohot ganda wala kiya hai mai kuch bol hi nahi paa raha woh hota hai na kabhi kabhi itne guilt mein hote hain ki sorry bhi nahi nikalta muh se abhi mera woh time chal raha hai ik u hate me yohaan is much better than me u dont wanna be with me mai fake hu but agar koi ek cheez jo fake nahi hai toh woh yeh hai ki i love you as a friend
+            </p>
+
+            <p>
+            meri eklauti female friend jise mai sab kuch bol deta tha aur mai judge nahi hota tha ig tum bhi merepe itna trust karti thi ki sab kuch bol paati thi
+            </p>
+
+            <p>
+            i still remember jab mera breakdown hua tha ananya ke time raghav ke time you were with me and i loved talking to you aur tere se baat karke i used to forget things sabne bohot kuch bola tha school mai i like you romantically but mai jaanta tha aur tum bhi jaanti thi what i used to feel mai bohot bakwas bol raha hu but these are the things jo mujhe aaj poore din baar baar yaad aa rahi thi
+            </p>
+
+            <p>
+            aur samajh nahi aa raha kis haq se tumko sorry bolu ya yeh bolu ki mujhse baat karo jab maine itna bada fuck up kiya hai ham tumko bata bhi nahi sakta ki ham kitna toot gaya tha jab tumne bola ki tumko hamari dosti se farak nahi padta i am in such deep guilt ki ham bol bhi nahi sakta i hate myself for what i did and sach bolu idk ki maine woh cheez vidhi ko kyun boli mujhe nahi bolna tha i know that
+            </p>
+
+            <p>
+            i just want to say that i am genuinely bohot zyada SORRRRRYYYYYYY itna ki tumko kabhi samajh bhi nahi aayega but yeh bohot galat hoga ki mai tumko force karu mujhe maaf karne ke liye
+            </p>
+
+            <p>
+            and by chance for god sake tum mereko maaf kar do na pari kasam se mai wapas pura trust build karunga pura starting se jaise pehle kiya tha hard hoga but i will do it aise nahi jaane dunga tumko aur kabhi meri taraf se yeh repeat nahi hoga please please please please mereko ek baar maaf kar do plzzzz 🥺
+            </p>
+
+            <p>
+            aur khuda na khasta nahi maaf kiya toh ham bas itna bolna chahta hu ki tere saare baatein mere paas safe hain aur abhi woh room jahan tum nahi ho ham tumhara naam save karega no matter what
+            </p>
+
+            <p>
+            i know mere actions show nahi karte but you mean a lot to me itna ki no one can understand itna ki bhavya ko bhi pata hai ki i like you more than her
+            </p>
+
+            <p class="highlight">
+                I AM GENUINELY SORRRYYYYYY FOR RUINING EVERYTHING
+            </p>
+
+            <p class="highlight">
+                PLEASE TRY TO FORGIVE ME
+            </p>
+
+        </div>
+
+        <br>
+
+        <button onclick="showPage('page4')">
+            Click Here 💖
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 4 -->
+
+<section class="page" id="page4">
+
+    <div class="card">
+
+        <div class="final">
+            THANK YOU FOR READING 💗
+        </div>
+
+        <p class="subtitle">
+            Whatever happens, I just wanted you to know that I genuinely meant every word.
+        </p>
+
+        <div class="signature">
+            Written by Mudit
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function showPage(pageID){
+
+    document.querySelectorAll(".page").forEach(function(page){
+
+        page.classList.remove("active");
+
+    });
+
+    document.getElementById(pageID).classList.add("active");
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
